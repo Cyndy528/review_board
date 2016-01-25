@@ -26,7 +26,7 @@
   <!-- custom styles -->
   <link rel="stylesheet" type="text/css" href="main.css">
 
-  <title>Review It!</title>
+  <title>Shopping!</title>
 </head>
 <body ng-controller="StoreController as store"> 
     <ul class="list-group">
@@ -37,6 +37,26 @@
       </li>
     </ul>
     <button ng-show ="store.product.canPurchase"> Add to Cart </button>
+    <section ng-init="tab = 1" ng-controller="PanelController as panel">
+      <ul class="nav nav-pills">
+       <li ng-class="{ active: panel.isSelected(1)}"><a href ng-click="panel.selectTab(1)">Description</a></li>
+       <l ng-class="{ active: panel.isSelected(1)}"><a href ng-click="panel.selectTab(2)">Specifications</a></li>
+       <li ng-class="{ active: panel.isSelected(1)}"><a href ng-click="panel.selectTab(3)">Reviews</a></li>
+      </ul>
+      {{tab}}
+    </section>
+    <div class="panel" ng-show"tab === 1">
+      <h4>Description</h4>
+      <p> {{product.description}}</p>
+    </div>
+    <div class="panel" ng-show"tab === 2">
+      <h4>Specifications</h4>
+      <blockquote>None yet</blockquote>
+    </div>
+    <div class="panel" ng-show"tab === 3">
+      <h4>Reviews</h4>
+      <blockquote>None yet</blockquote>     
+    </div>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
